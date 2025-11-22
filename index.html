@@ -3,8 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Hola Mundo</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f5f5f5;
+        }
+        .center-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 32px 0;
+        }
+        img {
+            max-width: 350px;
+            max-height: 350px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .nombre-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .nombre-resultado {
+            margin-top: 18px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hola mundo</h1>
+    <div class="center-img">
+        <img src="roca.jpg" alt="La Roca">
+    </div>
+    <form class="nombre-form" onsubmit="mostrarNombre(event)">
+        <label for="nombre">Escribe tu nombre:</label>
+        <input type="text" id="nombre" name="nombre" required autocomplete="off">
+        <button type="submit">Enviar</button>
+    </form>
+    <div class="nombre-resultado" id="resultado"></div>
+    <script>
+        function mostrarNombre(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            document.getElementById('resultado').textContent = 'Tu nombre es: ' + nombre;
+        }
+    </script>
 </body>
 </html>
