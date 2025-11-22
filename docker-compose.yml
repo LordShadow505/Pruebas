@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    container_name: html-demo
+    ports:
+      - "8001:80"
+    restart: unless-stopped
